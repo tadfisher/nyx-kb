@@ -1,9 +1,9 @@
-QTY,MPN,Value,Manufacturer,Ref. Des.
-32,1N4148W,1N4148W,Diodes Incorporated,"D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D30, D31, D32"
-2,SM02B-SHLS-TF,SM02B-SHLS-TF,JST,"J1, J2"
-1,"Generic Pin header 2×4, 2.54mm pitch, vertical","Generic Pin header 2×4, 2.54mm pitch, vertical","",J3
-1,"Generic Pin header 2×3, 2.54mm pitch, vertical","Generic Pin header 2×3, 2.54mm pitch, vertical","",J4
-32,PG1350 (hotswap),PG1350 (hotswap),Kailh,"S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29, S30, S31, S32"
-1,MHSS1105,MHSS1105,APEM Inc.,S33
-2,PTS636SM25SMTRLFS,PTS636SM25SMTR,C&K,"S34, S35"
-1,nice!nano (reversible),nice!nano (reversible),Nice Keyboards,U1
+QTY,MPN,Description,Manufacturer
+32,1N4148WTR,Small Signal General Purpose Diode,Diodes Incorporated
+1,BM02B-ACHLKS-GAN-ETF,1.2mm pitch Disconnectable Crimp Style connector,JST
+1,"Generic Pin header 2×3, 2.54mm pitch, vertical","",""
+1,"Generic Pin header 2×4, 2.54mm pitch, vertical","",""
+1,MHSS1105,"Slide Switch SPDT, Through Hole, Right Angle",APEM Inc.
+32,PG1350 (hotswap),Low-profile keyboard switch,Kailh
+1,PTS636SM25SMTRLFS,"6.1×3.7×2.5 mm SMD tactile switch, 180 gf actuation force",C&K
+1,nice!nano (reversible),Pro Micro replacement development board offering BLE using the nRF52840 chip,Nice Keyboards

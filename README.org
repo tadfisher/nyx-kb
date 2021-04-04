@@ -1,0 +1,173 @@
+#+STARTUP: inlineimages
+
+[[./doc/nyx-logo.svg]]
+
+[[https://github.com/tadfisher/nyx-kb/actions/workflows/build.yml/badge.svg?branch=main]]
+
+Low-profile, split, wireless, ergonomic keyboard. Lots of keys but not too many.
+
+[[./doc/nyx-photo.png]]
+
+** Hack
+
+The PCB is a [[https://horizon-eda.org][Horizon EDA]] project in [[file:pcb/][pcb/]]. It requires the [[https://github.com/tadfisher/horizon-kb][horizon-kb pool]], so clone that repo and
+add it to your pools in Preferences before opening [[file://pcb/pcb.hprj][pcb/pcb.hprj]].
+
+There is an experimental e-paper adapter board in [[file://epd/][epd/]], but it has not been tested as it ended up
+not fitting in the allotted space. This is being worked on.
+
+** Order
+
+For the main PCBs, send off the Gerbers in [[file://pcb/gerbers/nyx.zip][pcb/gerbers/nyx.zip]] to your favorite manufacturing
+house. I used[[https://jlcpcb.com/][ JLCPCB]] for the prototype build pictured above, but the board should meet design rules
+for [[https://oshpark.com/][Oshpark]] and most other houses.
+
+You will need at least two boards for the keyboard halves. The prototype uses an additional
+unpopulated board for the bottom plate, which could be less expensive than having one cut from some
+other material.
+
+As-is, the board requires either Kailh Choc or MX hotswap sockets.
+
+SVGs for the plates and MCU shield can be found in [[file://case/][case/]]. These are sized in millimeters, so
+double-check when you order that you aren't paying for something four times the size you need, as
+some cutting services assume the image is sized such that 1px == 1mm. I had [[https://www.sendcutsend.com][SendCutSend]] cut the top
+plate out of .048" 304 stainless steel, which fits Kailh Choc (PG1350) switches perfectly. [[https://www.sculpteo.com/en/][Sculpteo]]
+cut the MCU shield out of 1mm acrylic which turned out just fine.
+
+I painted the top plates by first scuffing the surface, then applying several thin coats of
+[[https://www.amazon.com/gp/product/B003CT498A/][self-etching primer]], followed by several thin coats of [[https://www.amazon.com/gp/product/B07LFWTQJX/][matte-black Krylon Fusion]]. This is a pretty
+durable finish, but it may chip slightly at the edges, so a few clear-coats might be desirable.
+
+*** BOM
+
+| QTY | MPN                                            | Description                     | Manufacturer        |
+|-----+------------------------------------------------+---------------------------------+---------------------|
+|  64 | 1N4148WTR                                      | Diode                           | Diodes Incorporated |
+|   2 | MHSS1105                                       | Slide Switch SPDT               | C&K                 |
+|  64 | PG1350                                         | Low-profile keyboard switch     | Kailh               |
+|  64 | CPG135001S30                                   | Hotswap socket for Kailh PG1350 | Kailh               |
+|   2 | PTS636SM25SMTRLFS                              | SMD tactile switch              | C&K                 |
+|   1 | nice!nano                                      | BLE microcontroller             | Nice Keyboards      |
+|   2 | BM02B-ACHLKS-GAN-ETF                           | Optional battery connector      | JST                 |
+|   2 | Generic Pin header 2×3, 2.54mm pitch, vertical | Optional debug header           |                     |
+|   2 | Generic Pin header 2×4, 2.54mm pitch, vertical | Optional EPD/OLED header        |                     |
+
+*** Extras
+
+- 301230 rechargeable battery fits under the nice!nano when using sockets. You can go larger by
+  sacrificing some thickness or lopping off the blank area of the top plate under the MCU.
+- If using the JST connector, 4x [[https://www.digikey.com/en/products/detail/jst-sales-america-inc/SACHL-003G-P0.2/5272213][ACHL crimp connectors]] and a crimping tool is needed. I used the
+  [[https://www.engineertools-jp.com/pa092021][Engineer PA-09]] which worked with some finagling, but the [[https://www.engineertools-jp.com/pad111213][PAD-11]] may be a more appropriate, but
+  more expensive, solution. You'll also need two [[https://www.digikey.com/en/products/detail/jst-sales-america-inc/ACHLR-02V-S/5272191][ACHLR connector housings]].
+- For standoffs and screws, I bought a few variety packs of [[https://pyrodrone.com/collections/m2/products/diatone-general-screws-pack-m2][M2 screws]] and two sets of
+  [[https://pyrodrone.com/collections/m2/products/m2-knurled-aluminum-standoff-5-pcs-choose-lenght][knurled aluminum standoffs]] from [[https://pyrodrone.com/][Pyro Drone]]. I initially used nylon nuts as spacers, but you can
+  get thinner by cutting up some rubber hard drive shock mounts. If there's a reliable source of
+  rubber/silicone spacers about 1.2mm long, suggestions are welcome!
+- For nuts, I eventually shelled out for 4 packs of [[https://www.mcmaster.com/96315A111/][stainless steel M2 hex nuts]] from McMaster-Carr,
+  but at US$8.57 per pack of 10, there are certainly cheaper options out there. I used 2mm M2 nylon
+  nuts for spacing the bottom plate from the PCB.
+- I made a non-slip bottom surface by cutting up a [[https://www.amazon.com/gp/product/B08LN6LN4R/][silicone sheet]] in the shape of the bottom plate
+  and using a hole punch to make clearance for the nuts. This particular sheet attracts debris
+  though, so suggestions are welcome for alternative materials or feet.
+
+** Solder
+
+#+begin_quote
+Tips:
+
+- Use a high-quality flux, and lots of it. You can't use too much flux. I highly suggest [[https://www.amazon.com/ChipQuik-SMD-291-Clean-Syringe-Nozzle/dp/B00CM2A97S][ChipQuik
+  tack flux]].
+- Clean and tin your iron's tip regularly. I love Hakko's [[https://www.amazon.com/dp/B0195V52J8/][FS-100 tinning paste]] for this.
+- Don't go too low on the temperature. I did the whole board at 650 C with leaded solder. You'll
+  likely need a higher temperature and more heating time with lead-free solder.
+- The board uses surface-mounted components to stay fairly thin. Don't be discouraged; in fact, I
+  find it easier to solder small SMT components than to deal with both sides of the board while
+  soldering through-hole parts.
+#+end_quote
+
+[[file:doc/solder-full.png][file:doc/solder.png]]
+
+Start with the diodes. Moving in columns from left to right (or right-to-left if you're
+left-handed), apply flux on the pads labeled =D*= and pre-tin them with a moderate amount of
+solder. Re-apply flux. Grab the diode with a pair of tweezers, ensuring it is oriented correctly;
+see the image below.
+
+[[file:doc/diode.svg]]
+
+Heat up one pad until the solder is melted and push the diode in from the side until the pin is
+seated in the center of the pad. Remove the iron. While pressing down on the diode with the
+tweezers, heat up the other pad until the other diode leg is seated and bonded with the solder.
+
+After all the diodes are in place, move on to the switch sockets. Again moving in columns, apply
+flux to the pads, tin them with a moderate amount of solder, and re-apply flux. Place the socket,
+jam your iron tip in the cup, and apply solder until both the pad and cup are covered and obviously
+bonded. These are pretty easy to do, and you can go wild with the solder if you feel like it; just
+make sure the bottom of the cup is bonded to the pad.
+
+I recommend soldering the nice!nano sockets now if you're using them; see the
+[[https://nicekeyboards.com/docs/nice-nano/getting-started#socketing-the-nicenano][nice!nano documentation]] for a great guide on how to do that. Otherwise, solder the nice!nano itself
+to the board, making sure it fits in the silkscreened outline so that you're using the correct set
+of pins.
+
+The JST connector can be tricky. What helps here is a minimal amount of tinning on the pad, tons of
+flux, and plenty of force with tweezers so it doesn't slide around on you. Start with the smaller
+pads first, then anchor with the larger pads.
+
+Solder the reset switch like you did with the diodes.
+
+The through-hole components are the power switch and the optional headers. Be sure to cut off the
+excess pin length or you may have interference issues when assembling the board.
+
+If soldering the battery to the nice!nano, use the =B-= and =B+= pins, making sure your polarity is
+correct (red = positive, black = negative).
+
+If using the JST connector, crimp the male pins to the battery leads and insert them into the
+connector housing, making absolutely sure that the polarity matches the connector socket.
+
+** Building
+
+If using the JST connector, insert the battery first, as the top plate covers the connector.
+
+Place the appropriate-length screws in each of the screw holes in the top plate. On the other side
+of the plate, add the spacer of choice; I cut up some rubber HDD shock mounts. Keep in mind you have
+1.2mm of space to work with, so normal 2mm nylon nuts won't work.
+
+With the top plate inverted, align the PCB and place it over the screws. Use the nylon nuts to
+loosely tie the assembly together.
+
+Turn the board back over. Working from the center out, insert your switches of choice so that they
+mount in the socket and clip in to the plate at the same time. I found a thin plastic spudger to be
+helpful for spacing apart the plate and PCB, but a pair of tweezers could also work if you're
+careful.
+
+After all the switches are inserted, you may want to test the electronics before fully assembling
+the board, in case of a bad solder connection or flipped diode. See [[** Flashing][Flashing]] below, or use a
+multimeter if you like.
+
+Tighten down the spacer nuts underneath the PCB so there isn't play and the switches aren't moving
+around when you push them in.
+
+On the bottom plate, insert four screws into the holes surrounding the MCU. Tighten nylon spacer
+nuts around these screws so they don't have play.
+
+With the board and bottom plate in either hand, sandwich them together so all the screws protrude
+from the holes. Use your nice metal nuts on the bottom.
+
+** Flashing
+
+A configuration for [[https://zmkfirmware.dev/][ZMK Firmware]] lives in [[file://firmware/][firmware/]]. You can grab pre-built images from the [[https://github.com/tadfisher/nyx-kb/actions?query=branch%3Amain][latest
+CI run]] by clicking it and downloading the =firmware= artifact. Connect the left board via USB; a
+filesystem named =NICENANO= should be mounted. Copy =nyx_left_nice_nano.uf2= into the root folder of
+that mount. Likewise, do the same for the right board using =nyx_right_nice_nano.uf2= instead.
+
+Instructions for modifying and building the firmware locally can be found in the
+[[https://zmkfirmware.dev/docs][ZMK Firmware documentation]].
+
+** License
+
+Copyright © 2021 Tad Fisher.
+
+All firmware files located in [[file:firmware/][firmware/]] are available under the [[file://LICENSE.mit][MIT]] license to match ZMK.
+
+Except for the third-party works in [[file://docs/][docs/]], all other files are available under the [[file://LICENSE.gpl][GNU GPL version 3
+or any later version]].

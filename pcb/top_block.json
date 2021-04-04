@@ -5,15 +5,15 @@
             "columns": [
                 "QTY",
                 "MPN",
-                "value",
-                "manufacturer",
-                "refdes"
+                "description",
+                "manufacturer"
             ],
             "order": "asc",
-            "sort_column": "refdes"
+            "sort_column": "MPN"
         },
+        "include_nopopulate": false,
         "orderable_MPNs": {},
-        "output_filename": ""
+        "output_filename": "bom.csv"
     },
     "buses": {},
     "components": {
@@ -65,7 +65,7 @@
             "custom_pin_names": {},
             "entity": "29f544a1-a789-4fe6-a1ef-29da5ba3d371",
             "group": "00000000-0000-0000-0000-000000000000",
-            "part": "18d24480-1ade-471a-a8d7-98ce2b61d077",
+            "part": "a6f17148-567f-4186-afb0-518ea8b94cf8",
             "pin_names": {
                 "eb7f68b1-6fba-4a35-a470-2cecb23fe087/588536f1-9e96-4500-bcbb-4ba48082b643": [
                     -2
@@ -1069,6 +1069,7 @@
             "custom_pin_names": {},
             "entity": "09952b1f-1221-48ad-896c-4481914e3af2",
             "group": "00000000-0000-0000-0000-000000000000",
+            "nopopulate": true,
             "part": "194e0b93-d7ef-45f6-bbac-1ff2cdf9f832",
             "pin_names": {},
             "refdes": "S35",
@@ -1428,7 +1429,8 @@
             "custom_pin_names": {},
             "entity": "29f544a1-a789-4fe6-a1ef-29da5ba3d371",
             "group": "00000000-0000-0000-0000-000000000000",
-            "part": "18d24480-1ade-471a-a8d7-98ce2b61d077",
+            "nopopulate": true,
+            "part": "a6f17148-567f-4186-afb0-518ea8b94cf8",
             "pin_names": {
                 "eb7f68b1-6fba-4a35-a470-2cecb23fe087/588536f1-9e96-4500-bcbb-4ba48082b643": [
                     -2

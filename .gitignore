@@ -1,2 +1,3 @@
 pcb/cache/
 epd/cache/
+*.autosave
