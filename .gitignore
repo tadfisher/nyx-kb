@@ -1,3 +1,4 @@
 pcb/cache/
 epd/cache/
 *.autosave
+*.imp_meta

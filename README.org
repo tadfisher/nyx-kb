@@ -141,7 +141,7 @@ helpful for spacing apart the plate and PCB, but a pair of tweezers could also w
 careful.
 
 After all the switches are inserted, you may want to test the electronics before fully assembling
-the board, in case of a bad solder connection or flipped diode. See [[** Flashing][Flashing]] below, or use a
+the board, in case of a bad solder connection or flipped diode. See [[#flashing][Flashing]] below, or use a
 multimeter if you like.
 
 Tighten down the spacer nuts underneath the PCB so there isn't play and the switches aren't moving
