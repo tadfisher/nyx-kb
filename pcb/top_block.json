@@ -1069,7 +1069,6 @@
             "custom_pin_names": {},
             "entity": "09952b1f-1221-48ad-896c-4481914e3af2",
             "group": "00000000-0000-0000-0000-000000000000",
-            "nopopulate": true,
             "part": "194e0b93-d7ef-45f6-bbac-1ff2cdf9f832",
             "pin_names": {},
             "refdes": "S35",
@@ -1429,7 +1428,6 @@
             "custom_pin_names": {},
             "entity": "29f544a1-a789-4fe6-a1ef-29da5ba3d371",
             "group": "00000000-0000-0000-0000-000000000000",
-            "nopopulate": true,
             "part": "a6f17148-567f-4186-afb0-518ea8b94cf8",
             "pin_names": {
                 "eb7f68b1-6fba-4a35-a470-2cecb23fe087/588536f1-9e96-4500-bcbb-4ba48082b643": [
@@ -1953,7 +1951,7 @@
         "f7cbe32f-4d2f-4271-a620-e7f9c6c7720a": {
             "is_power": false,
             "name": "",
-            "net_class": "185bf4d6-d2f3-431c-82f2-c2a67c6b66b3",
+            "net_class": "67190af9-7007-4989-933f-9b00094506e6",
             "power_symbol_name_visible": true,
             "power_symbol_style": "gnd"
         },
