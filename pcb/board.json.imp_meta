@@ -1,0 +1,170 @@
+{
+    "board_display_options": {
+        "-100": {
+            "planes_outline": true
+        },
+        "-120": {
+            "gfx": true,
+            "text": true
+        },
+        "0": {
+            "planes_outline": true
+        },
+        "20": {
+            "gfx": true,
+            "text": true
+        }
+    },
+    "grid_settings": {
+        "mode": "square",
+        "origin_x": 0,
+        "origin_y": 0,
+        "spacing_square": 250000,
+        "spacing_x": 1250000,
+        "spacing_y": 1250000
+    },
+    "grid_spacing": 250000,
+    "layer_display": {
+        "layer_opacity": 65.0,
+        "layers": {
+            "-100": {
+                "display_mode": "fill",
+                "visible": true
+            },
+            "-110": {
+                "display_mode": "outline",
+                "visible": true
+            },
+            "-120": {
+                "display_mode": "fill_only",
+                "visible": true
+            },
+            "-130": {
+                "display_mode": "fill",
+                "visible": true
+            },
+            "-140": {
+                "display_mode": "outline",
+                "visible": false
+            },
+            "-150": {
+                "display_mode": "outline",
+                "visible": true
+            },
+            "-160": {
+                "display_mode": "outline",
+                "visible": true
+            },
+            "-200": {
+                "display_mode": "fill",
+                "visible": true
+            },
+            "0": {
+                "display_mode": "fill",
+                "visible": true
+            },
+            "10": {
+                "display_mode": "outline",
+                "visible": true
+            },
+            "100": {
+                "display_mode": "outline",
+                "visible": true
+            },
+            "110": {
+                "display_mode": "outline",
+                "visible": true
+            },
+            "20": {
+                "display_mode": "fill_only",
+                "visible": true
+            },
+            "200": {
+                "display_mode": "outline",
+                "visible": true
+            },
+            "30": {
+                "display_mode": "fill",
+                "visible": true
+            },
+            "40": {
+                "display_mode": "outline",
+                "visible": true
+            },
+            "50": {
+                "display_mode": "outline",
+                "visible": true
+            },
+            "60": {
+                "display_mode": "outline",
+                "visible": true
+            }
+        }
+    },
+    "nets": {
+        "airwires_visible": {
+            "0e288f0b-69c2-4bc1-aaa7-ceff8f4b35f1": true,
+            "113556a7-d594-4b6f-9811-782aa1ea3db8": true,
+            "11cacb15-e59d-4f48-89ad-85cda71efa29": true,
+            "143be21e-6592-4967-a4e4-7e7ebcdfc245": true,
+            "18e0337f-8a7d-4a26-83a8-285f69149ed9": true,
+            "1b7fc0f1-ddce-4635-b160-c0d9b7c5be0a": true,
+            "213fa361-a2fe-46bf-884c-4cc80e9dfdf9": true,
+            "21b4b9a5-42e3-41ca-b02a-56dcae17cfef": true,
+            "29c47126-57f0-4560-ac1b-5518a3027872": true,
+            "2a58e6a9-d96c-4aa7-9627-6f2adc7610b1": true,
+            "2d18b753-ca07-48d6-85a2-665b29a7f10d": true,
+            "318ddcf4-30e3-4adb-a144-e2701e81fb7a": true,
+            "328bb503-308b-4fef-abd7-7494af092869": true,
+            "351e1795-863b-4137-9104-6debf4bbae2f": true,
+            "3b2d3905-acc1-4565-88e0-3b4109b86d9c": true,
+            "47c64bd6-e61a-4a28-89f2-adb88f322de6": true,
+            "4a1696be-8ae7-446b-bcca-96fbb4c8c9ca": true,
+            "4aa1a61a-7530-4905-91ac-5e5b39afe729": true,
+            "56ccbc5f-f82f-4623-b7da-a43a12ccdd3c": true,
+            "57595e4a-1b00-4a5f-86e0-7904114b62aa": true,
+            "5bb096d6-2f7d-4f9e-ad10-9b47668e6617": true,
+            "5fc604e9-b233-4794-8d97-899059545add": true,
+            "66d99010-d4b9-4f30-8e8b-f132d725bd4e": true,
+            "675f6a0f-6bda-453c-91d8-850e9e2396e5": true,
+            "688cc227-6272-41b1-86e6-4a1e0967edd6": true,
+            "69c32e49-3613-46ae-ac1c-ee426e2092ed": true,
+            "713d0ce2-a3f1-4f21-90d9-5ef8b067c4f7": true,
+            "74ed6cec-1325-4c16-87bb-f9def0949c82": true,
+            "75b53a9e-2e0b-4bc6-bb57-5440c12c5d6a": true,
+            "7cae64d0-9bde-4d99-bc36-b8345950da81": true,
+            "84579ecd-12aa-4e72-bd87-a5de199e1979": true,
+            "8d461a13-3d06-4ff2-bb3e-f9a0590e42a3": true,
+            "95911d20-078b-42c6-99f8-4bc16e7f76d7": true,
+            "98a1a77a-e95a-4cb7-a59d-6f5e14997334": true,
+            "a2080bee-a940-4c14-a9df-075803b816a8": true,
+            "a4d30be6-b205-44a3-9b80-85957e82ca75": true,
+            "a66d24ba-f347-4e6b-8902-eb693578d6df": true,
+            "a70719cb-e922-4437-a097-87613c7f802c": true,
+            "aa998439-fbf7-4ff4-af49-7ef188de53a8": true,
+            "ae0a042b-e301-4173-93bd-e42acf9de4a6": true,
+            "ae9a5412-e07b-46e5-ada3-5a8e1d610c5e": true,
+            "b2892415-4683-4234-bb69-97a7a091ae6f": true,
+            "c356e571-e06a-4723-9c33-d4bfdd8597fd": true,
+            "c4766bf7-bc28-4326-a12e-287a47b35a43": true,
+            "c671ba9b-1970-42b3-8340-1f1f2ad81c02": true,
+            "cc19eaa8-77f3-46d5-83d3-2da3eee588a0": true,
+            "d1068946-8243-410c-80d6-12cd359e9556": true,
+            "d196af4d-fb25-46e9-9645-b87617abe6f8": true,
+            "d9f48f86-3770-4646-b262-31ec12b6fb51": true,
+            "e24494c2-9f5f-43a8-b3af-efb1d01f7822": true,
+            "e9788618-ceb4-4be6-8530-c775ce403f11": true,
+            "f0788abd-ec47-4b78-880b-f2d8f7ffd9f3": true,
+            "f39f268a-548b-4706-9ff9-1c41b440a4ff": true,
+            "f4ba76ce-687b-4447-82d4-c0d5afb87505": true,
+            "f5973fcc-2afa-4c20-acc8-a7000a4dc965": true,
+            "f70352c2-9daa-47c4-b20f-90853da9bcb4": true,
+            "fb8fef24-57df-46a9-bd90-201aefcf03e0": true,
+            "fcc01386-9d4d-41da-ac80-ec5cca3f3c44": true
+        },
+        "net_colors": null
+    },
+    "parts": {
+        "parts_placed": null
+    }
+}
