@@ -1,0 +1,25 @@
+
+if SHIELD_NYX_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "Nyx"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+
+endif
+
+
+if SHIELD_NYX_RIGHT
+
+config USB
+	default y
+
+endif
+
+if SHIELD_NYX_LEFT || SHIELD_NYX_RIGHT
+
+config ZMK_SPLIT
+	default y
+
+endif

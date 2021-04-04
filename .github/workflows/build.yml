@@ -1,0 +1,61 @@
+on: [push, pull_request, workflow_dispatch]
+
+name: Build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: zmkfirmware/zmk-build-arm:2.4
+    name: Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache west modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-zephyr-modules
+        with:
+          path: |
+            modules/
+            tools/
+            zephyr/
+            bootloader/
+            zmk/
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('manifest-dir/west.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: West Init
+        run: west init -l firmware
+      - name: West Update
+        run: west update
+      - name: West Zephyr export
+        run: west zephyr-export
+      - name: West Build (Nyx Left)
+        run: west build -s zmk/app -b nice_nano -- -DSHIELD=nyx_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/firmware"
+      - name: Nyx DTS File
+        if: ${{ always() }}
+        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
+      - name: Nyx Left Kconfig file
+        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: Rename zmk.uf2
+        run: cp build/zephyr/zmk.uf2 nyx_left_nice_nano.uf2
+      - name: Archive (Nyx Left)
+        uses: actions/upload-artifact@v2
+        with:
+          name: firmware
+          path: nyx_left_nice_nano.uf2
+      - name: West Build (Nyx Right)
+        run: west build --pristine -s zmk/app -b nice_nano -- -DSHIELD=nyx_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/firmware"
+
+      - name: Nyx Right Kconfig file
+        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: Rename zmk.uf2
+        run: cp build/zephyr/zmk.uf2 nyx_right_nice_nano.uf2
+      - name: Archive (Nyx Right)
+        uses: actions/upload-artifact@v2
+        with:
+          name: firmware
+          path: nyx_right_nice_nano.uf2

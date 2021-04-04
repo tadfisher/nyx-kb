@@ -1,0 +1,81 @@
+/*
+ * Copyright (c) 2020 Tad Fisher
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define DEFAULT 0
+#define LOWER   1
+#define UPPER   2
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            // | `      | 1 | 2 | 3    | 4  | 5    | -    | =    | 6   | 7    | 8    | 9  | 0 |        |
+            // | [      | Q | W | E    | R  | T    | //   | \\   | Y   | U    | I    | O  | P | ]      |
+            // | (      | A | S | D    | F  | G    | ESC  | TAB  | H   | J    | K    | L  | ; | )      |
+            // | LSHIFT | Z | X | C    | V  | B    | DEL  | BSPC | N   | M    | ,    | .  | ' | RSHIFT |
+            // |        |   |   | LGUI | FN | LCTL | LALT | SPC  | RET | RCTL | RALT |    |   |        |
+            bindings = <
+                &kp GRAVE &kp N1 &kp N2 &kp N3   &kp N4    &kp N5   &kp MINUS    &kp EQUAL     &kp N6       &kp N7    &kp N8    &kp N9  &kp N0   &kp MINUS
+                &kp LBKT  &kp Q  &kp W  &kp E    &kp R     &kp T    &kp FSLH     &kp BSLH      &kp Y        &kp U     &kp I     &kp O   &kp P    &kp RBKT
+                &kp LPAR  &kp A  &kp S  &kp D    &kp F     &kp G    &kp ESC      &kp TAB       &kp H        &kp J     &kp K     &kp L   &kp SEMI &kp RPAR
+                &kp LSHFT &kp Z  &kp X  &kp C    &kp V     &kp B    &kp DEL      &kp BSPC      &kp N        &kp M     &kp COMMA &kp DOT &kp APOS &kp RSHFT
+                                        &kp LGUI &mo LOWER &kp LCTL &mt LALT RET &mt RCTRL SPC &mt RALT RET &mo LOWER &kp RGUI
+            >;
+        };
+
+        lower_layer {
+            // |         | F1       | F2       | F3       | F4       | F5       |        |        | F6       | F7       | F8       | F9       | F10      | F11     |
+            // |         |          |          |          |          |          |        |        |          |          |          |          |          | F12     |
+            // |         |          |          |          |          |          |        |        |          |          |          |          |          |         |
+            // |         |          |          |          |          |          |        |        |          |          |          |          |          |         |
+            // |         |          |          |          |          |          |        |        |          |          |          |          |          |         |
+            bindings = <
+                &trans     &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &trans  &trans  &kp F6       &kp F7       &kp F8       &kp F9       &kp F10      &kp F11
+                &trans     &trans       &trans       &trans       &kp PG_UP    &trans       &trans  &trans  &trans       &trans       &kp UP       &trans       &trans       &kp F12
+                &trans     &trans       &trans       &kp HOME     &kp PG_DN    &kp END      &trans  &trans  &trans       &kp LEFT     &kp DOWN     &kp RIGHT    &trans       &trans
+                &trans     &trans       &trans       &trans       &trans       &trans       &trans  &trans  &trans       &trans       &trans       &trans       &trans       &trans
+                                                     &trans       &trans       &trans       &trans  &kp SPC &trans       &trans       &trans
+
+            >;
+        };
+
+        upper_layer {
+            // | BT_CLR  | BT_SEL 0 | BT_SEL 1 | BT_SEL 2 | BT_SEL 3 | BT_SEL 4 |        |        | BT_SEL 4 | BT_SEL 3 | BT_SEL 2 | BT_SEL 1 | BT_SEL 0 | BT_CLR  |
+            // | OUT_USB | OUT_BLE  |          |          |          |          |        |        |          |          |          |          | OUT_BLE  | OUT_USB |
+            // |         |          |          |          |          |          | BT_NXT | BT_NXT |          |          |          |          |          |         |
+            // |         |          |          |          |          |          | BT_PRV | BT_PRV |          |          |          |          |          |         |
+            // |         |          |          |          |          |          |        |        |          |          |          |          |          |         |
+            bindings = <
+                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans  &trans &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &trans
+                &trans     &trans       &trans       &trans       &trans       &trans       &trans  &trans &trans       &trans       &trans       &trans       &trans       &trans
+                &trans     &trans       &trans       &trans       &trans       &trans       &trans  &trans &trans       &trans       &trans       &trans       &trans       &trans
+                &trans     &trans       &trans       &trans       &trans       &trans       &trans  &trans &trans       &trans       &trans       &trans       &trans       &trans
+                                                     &trans       &trans       &trans       &trans  &trans &trans       &trans       &trans
+
+            >;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo_upperl {
+            timeout-ms = <50>;
+            key-positions = <56 57>;
+            bindings = <&mo UPPER>;
+        };
+        combo_upperr {
+            timeout-ms = <50>;
+            key-positions = <62 63>;
+            bindings = <&mo UPPER>;
+        };
+    };
+};
