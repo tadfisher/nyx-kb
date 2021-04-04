@@ -1,10 +1,10 @@
 #+STARTUP: inlineimages
 
-[[./doc/nyx-logo.svg]]
+#+html: <p align="center"><img src="doc/nyx-logo.svg" /></p>
 
-[[https://github.com/tadfisher/nyx-kb/actions/workflows/build.yml/badge.svg?branch=main]]
+#+html: <p align="center">Low-profile, split, wireless, ergonomic keyboard. Lots of keys but not too many.</p>
 
-Low-profile, split, wireless, ergonomic keyboard. Lots of keys but not too many.
+#+html: <p align="center"><img src="https://github.com/tadfisher/nyx-kb/actions/workflows/build.yml/badge.svg?branch=main" /></p>
 
 [[./doc/nyx-photo.png]]
 
