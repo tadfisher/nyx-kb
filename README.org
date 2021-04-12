@@ -78,7 +78,7 @@ Tips:
 - Use a high-quality flux, and lots of it. You can't use too much flux. I highly suggest [[https://www.amazon.com/ChipQuik-SMD-291-Clean-Syringe-Nozzle/dp/B00CM2A97S][ChipQuik
   tack flux]].
 - Clean and tin your iron's tip regularly. I love Hakko's [[https://www.amazon.com/dp/B0195V52J8/][FS-100 tinning paste]] for this.
-- Don't go too low on the temperature. I did the whole board at 650 C with leaded solder. You'll
+- Don't go too low on the temperature. I did the whole board at 650°F with leaded solder. You'll
   likely need a higher temperature and more heating time with lead-free solder.
 - The board uses surface-mounted components to stay fairly thin. Don't be discouraged; in fact, I
   find it easier to solder small SMT components than to deal with both sides of the board while
