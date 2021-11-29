@@ -6,9 +6,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.4
+      image: docker.io/zmkfirmware/zmk-build-arm:2.5
     name: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        board:
+          - nice_nano
+          - nice_nano_v2
+        shield:
+          - nyx_left
+          - nyx_right
     steps:
+      - name: Prepare variables
+        id: variables
+        run: |
+          EXTRA_CMAKE_ARGS="-DSHIELD=${{ matrix.shield }}"
+          ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk"
+          DISPLAY_NAME="${{ matrix.shield }} - ${{ matrix.board }}"
+          echo ::set-output name=extra-cmake-args::${EXTRA_CMAKE_ARGS}
+          echo ::set-output name=artifact-name::${ARTIFACT_NAME}
+          echo ::set-output name=display-name::${DISPLAY_NAME}
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cache west modules
@@ -33,29 +51,27 @@ jobs:
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
-      - name: West Build (Nyx Left)
-        run: west build -s zmk/app -b nice_nano -- -DSHIELD=nyx_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/firmware"
-      - name: Nyx DTS File
+      - name: West Build (${{ steps.variables.outputs.display-name }})
+        run: west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/firmware" ${{ steps.variables.outputs.extra-cmake-args }} ${{ matrix.cmake-args }}
+      - name: ${{ steps.variables.outputs.display-name }} DTS File
         if: ${{ always() }}
-        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
-      - name: Nyx Left Kconfig file
+        run: |
+          if [ -f "build/zephyr/${{ matrix.board }}.dts.pre.tmp" ]; then cat -n build/zephyr/${{ matrix.board }}.dts.pre.tmp; fi
+          if [ -f "build/zephyr/zephyr.dts" ]; then cat -n build/zephyr/zephyr.dts; fi
+      - name: ${{ steps.variables.outputs.display-name }} Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 nyx_left_nice_nano.uf2
-      - name: Archive (Nyx Left)
+      - name: Rename artifacts
+        run: |
+          mkdir build/artifacts
+          if [ -f build/zephyr/zmk.uf2 ]
+          then
+            cp build/zephyr/zmk.uf2 "build/artifacts/${{ steps.variables.outputs.artifact-name }}.uf2"
+          elif [ -f build/zephyr/zmk.hex ]
+          then
+            cp build/zephyr/zmk.hex "build/artifacts/${{ steps.variables.outputs.artifact-name }}.hex"
+          fi
+      - name: Archive (${{ steps.variables.outputs.display-name }})
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: nyx_left_nice_nano.uf2
-      - name: West Build (Nyx Right)
-        run: west build --pristine -s zmk/app -b nice_nano -- -DSHIELD=nyx_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/firmware"
-
-      - name: Nyx Right Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 nyx_right_nice_nano.uf2
-      - name: Archive (Nyx Right)
-        uses: actions/upload-artifact@v2
-        with:
-          name: firmware
-          path: nyx_right_nice_nano.uf2
+          path: build/artifacts
