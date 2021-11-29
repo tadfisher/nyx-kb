@@ -9,14 +9,6 @@ config ZMK_SPLIT_BLE_ROLE_CENTRAL
 
 endif
 
-
-if SHIELD_NYX_RIGHT
-
-config USB
-	default y
-
-endif
-
 if SHIELD_NYX_LEFT || SHIELD_NYX_RIGHT
 
 config ZMK_SPLIT
