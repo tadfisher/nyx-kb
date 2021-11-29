@@ -33,17 +33,17 @@
         };
 
         lower_layer {
-            // |         | F1       | F2       | F3       | F4       | F5       |        |        | F6       | F7       | F8       | F9       | F10      | F11     |
-            // |         |          |          |          |          |          |        |        |          |          |          |          |          | F12     |
-            // |         |          |          |          |          |          |        |        |          |          |          |          |          |         |
-            // |         |          |          |          |          |          |        |        |          |          |          |          |          |         |
-            // |         |          |          |          |          |          |        |        |          |          |          |          |          |         |
+            // |      | F1   | F2   | F3      | F4     | F5  |      |      | F6    | F7     | F8     | F9      | F10   | F11   |
+            // |      |      |      |         |        |     |      |      |       |        |        |         |       | F12   |
+            // |      |      |      |         |        |     |      |      |       |        |        |         |       |       |
+            // |      |      |      |         |        |     |      |      |       |        |        |         |       |       |
+            // |      |      |      |         |        |     |      |      |       |        |        |         |       |       |
             bindings = <
-                &trans     &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &trans  &trans  &kp F6       &kp F7       &kp F8       &kp F9       &kp F10      &kp F11
-                &trans     &trans       &trans       &trans       &kp PG_UP    &trans       &trans  &trans  &trans       &trans       &kp UP       &trans       &trans       &kp F12
-                &trans     &trans       &trans       &kp HOME     &kp PG_DN    &kp END      &trans  &trans  &trans       &kp LEFT     &kp DOWN     &kp RIGHT    &trans       &trans
-                &trans     &trans       &trans       &trans       &trans       &trans       &trans  &trans  &trans       &trans       &trans       &trans       &trans       &trans
-                                                     &trans       &trans       &trans       &trans  &kp SPC &trans       &trans       &trans
+                &trans &kp F1 &kp F2 &kp F3    &kp F4  &kp F5 &trans &trans &kp F6  &kp F7   &kp F8   &kp F9    &kp F10 &kp F11
+                &trans &trans &trans &PG_UP    &trans  &trans &trans &trans &trans  &trans   &kp UP   &trans    &trans  &kp F12
+                &trans &trans &HOME  &kp PG_DN &kp END &trans &trans &trans &trans  &kp LEFT &kp DOWN &kp RIGHT &trans  &trans
+                &trans &trans &trans &trans    &trans  &trans &trans &trans &trans  &trans   &trans   &trans    &trans  &trans
+                                               &trans  &trans &trans &trans &kp SPC &trans   &trans   &trans
 
             >;
         };
