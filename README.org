@@ -11,15 +11,15 @@
 ** Hack
 
 The PCB is a [[https://horizon-eda.org][Horizon EDA]] project in [[file:pcb/][pcb/]]. It requires the [[https://github.com/tadfisher/horizon-kb][horizon-kb pool]], so clone that repo and
-add it to your pools in Preferences before opening [[file://pcb/pcb.hprj][pcb/pcb.hprj]].
+add it to your pools in Preferences before opening [[file:pcb/pcb.hprj][pcb/pcb.hprj]].
 
-There is an experimental e-paper adapter board in [[file://epd/][epd/]], but it has not been tested as it ended up
+There is an experimental e-paper adapter board in [[file:epd/][epd/]], but it has not been tested as it ended up
 not fitting in the allotted space. This is being worked on.
 
 ** Order
 
-For the main PCBs, send off the Gerbers in [[file://pcb/gerbers/nyx.zip][pcb/gerbers/nyx.zip]] to your favorite manufacturing
-house. I used[[https://jlcpcb.com/][ JLCPCB]] for the prototype build pictured above, but the board should meet design rules
+For the main PCBs, send off the Gerbers in [[file:pcb/gerbers/nyx.zip][pcb/gerbers/nyx.zip]] to your favorite manufacturing
+house. I used [[https://jlcpcb.com/][JLCPCB]] for the prototype build pictured above, but the board should meet design rules
 for [[https://oshpark.com/][Oshpark]] and most other houses.
 
 You will need at least two boards for the keyboard halves. The prototype uses an additional
@@ -28,7 +28,7 @@ other material.
 
 As-is, the board requires either Kailh Choc or MX hotswap sockets.
 
-SVGs for the plates and MCU shield can be found in [[file://case/][case/]]. These are sized in millimeters, so
+SVGs for the plates and MCU shield can be found in [[file:case/][case/]]. These are sized in millimeters, so
 double-check when you order that you aren't paying for something four times the size you need, as
 some cutting services assume the image is sized such that 1px == 1mm. I had [[https://www.sendcutsend.com][SendCutSend]] cut the top
 plate out of .048" 304 stainless steel, which fits Kailh Choc (PG1350) switches perfectly. [[https://www.sculpteo.com/en/][Sculpteo]]
@@ -155,7 +155,7 @@ from the holes. Use your nice metal nuts on the bottom.
 
 ** Flashing
 
-A configuration for [[https://zmkfirmware.dev/][ZMK Firmware]] lives in [[file://firmware/][firmware/]]. You can grab pre-built images from the [[https://github.com/tadfisher/nyx-kb/actions?query=branch%3Amain][latest
+A configuration for [[https://zmkfirmware.dev/][ZMK Firmware]] lives in [[file:firmware/][firmware/]]. You can grab pre-built images from the [[https://github.com/tadfisher/nyx-kb/actions?query=branch%3Amain][latest
 CI run]] by clicking it and downloading the =firmware= artifact. Connect the left board via USB; a
 filesystem named =NICENANO= should be mounted. Copy =nyx_left_nice_nano.uf2= into the root folder of
 that mount. Likewise, do the same for the right board using =nyx_right_nice_nano.uf2= instead.
@@ -167,7 +167,7 @@ Instructions for modifying and building the firmware locally can be found in the
 
 Copyright © 2021 Tad Fisher.
 
-All firmware files located in [[file:firmware/][firmware/]] are available under the [[file://LICENSE.mit][MIT]] license to match ZMK.
+All firmware files located in [[file:firmware/][firmware/]] are available under the [[file:LICENSE.mit][MIT]] license to match ZMK.
 
-Except for the third-party works in [[file://docs/][docs/]], all other files are available under the [[file://LICENSE.gpl][GNU GPL version 3
+Except for the third-party works in [[file:doc/][doc/]], all other files are available under the [[file:LICENSE.gpl][GNU GPL version 3
 or any later version]].
