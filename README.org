@@ -47,7 +47,7 @@ durable finish, but it may chip slightly at the edges, so a few clear-coats migh
 |  64 | PG1350                                         | Low-profile keyboard switch     | Kailh               |
 |  64 | CPG135001S30                                   | Hotswap socket for Kailh PG1350 | Kailh               |
 |   2 | PTS636SM25SMTRLFS                              | SMD tactile switch              | C&K                 |
-|   1 | nice!nano                                      | BLE microcontroller             | Nice Keyboards      |
+|   2 | nice!nano                                      | BLE microcontroller             | Nice Keyboards      |
 |   2 | BM02B-ACHLKS-GAN-ETF                           | Optional battery connector      | JST                 |
 |   2 | Generic Pin header 2×3, 2.54mm pitch, vertical | Optional debug header           |                     |
 |   2 | Generic Pin header 2×4, 2.54mm pitch, vertical | Optional EPD/OLED header        |                     |
