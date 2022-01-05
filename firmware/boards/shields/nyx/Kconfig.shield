@@ -1,3 +1,5 @@
+# -*- mode: makefile; -*-
+
 config SHIELD_NYX_LEFT
     def_bool $(shields_list_contains,nyx_left)
 

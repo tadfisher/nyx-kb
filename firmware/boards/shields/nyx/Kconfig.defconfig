@@ -1,3 +1,4 @@
+# -*- mode: makefile; -*-
 
 if SHIELD_NYX_LEFT
 
