@@ -1,4 +1,15 @@
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'firmware/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'firmware/**'
+  workflow_dispatch:
 
 name: Build
 
