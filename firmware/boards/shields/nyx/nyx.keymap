@@ -1,4 +1,5 @@
-/*
+/* -*- mode: dts; -*-
+ *
  * Copyright (c) 2020 Tad Fisher
  *
  * SPDX-License-Identifier: MIT
@@ -12,6 +13,11 @@
 #define DEFAULT 0
 #define LOWER   1
 #define UPPER   2
+
+&mt {
+    // This improves the &mt RCTRL SPACE behavior.
+    flavor = "balanced";
+};
 
 / {
     keymap {
