@@ -14,27 +14,34 @@
 #define LOWER   1
 #define UPPER   2
 
-&mt {
-    // This improves the &mt RCTRL SPACE behavior.
-    flavor = "balanced";
-};
-
 / {
+    behaviors {
+        // This is mod-tap with the "balanced" flavor.
+        // Improves the '&mt RCTRL SPACE' behavior when typing quickly.
+        bmt: balanced_mod_tap {
+			compatible = "zmk,behavior-hold-tap";
+			label = "MOD_TAP";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			tapping-term-ms = <200>;
+			bindings = <&kp>, <&kp>;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            // | `       | 1    | 2    | 3      | 4       | 5       | -          | =             | 6          | 7       | 8       | 9     | 0      |         |
-            // | [       | Q    | W    | E      | R       | T       | //         | \\            | Y          | U       | I       | O     | P      | ]       |
-            // | (       | A    | S    | D      | F       | G       | ESC        | TAB           | H          | J       | K       | L     | ;      | )       |
-            // | LSHIFT  | Z    | X    | C      | V       | B       | DEL        | BSPC          | N          | M       | ,       | .     | '      | RSHIFT  |
-            // |         |      |      | LGUI   | FN      | LCTL    | LALT       | SPC           | RET        | RCTL    | RALT    |       |        |         |
+            // | `       | 1    | 2    | 3      | 4       | 5       | -          | =              | 6          | 7       | 8       | 9     | 0      |         |
+            // | [       | Q    | W    | E      | R       | T       | //         | \\             | Y          | U       | I       | O     | P      | ]       |
+            // | (       | A    | S    | D      | F       | G       | ESC        | TAB            | H          | J       | K       | L     | ;      | )       |
+            // | LSHIFT  | Z    | X    | C      | V       | B       | DEL        | BSPC           | N          | M       | ,       | .     | '      | RSHIFT  |
+            // |         |      |      | LGUI   | FN      | LCTL    | LALT       | SPC            | RET        | RCTL    | RALT    |       |        |         |
             bindings = <
-                &kp GRAVE &kp N1 &kp N2 &kp N3   &kp N4    &kp N5    &kp MINUS    &kp EQUAL       &kp N6       &kp N7    &kp N8    &kp N9  &kp N0   &kp MINUS
-                &kp LBKT  &kp Q  &kp W  &kp E    &kp R     &kp T     &kp FSLH     &kp BSLH        &kp Y        &kp U     &kp I     &kp O   &kp P    &kp RBKT
-                &kp LPAR  &kp A  &kp S  &kp D    &kp F     &kp G     &kp ESC      &kp TAB         &kp H        &kp J     &kp K     &kp L   &kp SEMI &kp RPAR
-                &kp LSHFT &kp Z  &kp X  &kp C    &kp V     &kp B     &kp DEL      &kp BSPC        &kp N        &kp M     &kp COMMA &kp DOT &kp APOS &kp RSHFT
-                                        &kp LGUI &mo LOWER &kp LCTRL &mt LALT RET &mt RCTRL SPACE &mt RALT RET &mo LOWER &kp RGUI
+                &kp GRAVE &kp N1 &kp N2 &kp N3   &kp N4    &kp N5    &kp MINUS    &kp EQUAL        &kp N6       &kp N7    &kp N8    &kp N9  &kp N0   &kp MINUS
+                &kp LBKT  &kp Q  &kp W  &kp E    &kp R     &kp T     &kp FSLH     &kp BSLH         &kp Y        &kp U     &kp I     &kp O   &kp P    &kp RBKT
+                &kp LPAR  &kp A  &kp S  &kp D    &kp F     &kp G     &kp ESC      &kp TAB          &kp H        &kp J     &kp K     &kp L   &kp SEMI &kp RPAR
+                &kp LSHFT &kp Z  &kp X  &kp C    &kp V     &kp B     &kp DEL      &kp BSPC         &kp N        &kp M     &kp COMMA &kp DOT &kp APOS &kp RSHFT
+                                        &kp LGUI &mo LOWER &kp LCTRL &mt LALT RET &bmt RCTRL SPACE &mt RALT RET &mo LOWER &kp RGUI
             >;
         };
 
