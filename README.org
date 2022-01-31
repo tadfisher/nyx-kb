@@ -52,6 +52,26 @@ durable finish, but it may chip slightly at the edges, so a few clear-coats migh
 |   2 | Generic Pin header 2×3, 2.54mm pitch, vertical | Optional debug header           |                     |
 |   2 | Generic Pin header 2×4, 2.54mm pitch, vertical | Optional EPD/OLED header        |                     |
 
+*** Keycaps
+
+Keycaps required:
+
+| QTY | Description |
+|-----+-------------|
+|  60 | 1u          |
+|   6 | 1.5u        |
+|   2 | 2u          |
+
+The keycaps shown are MBK Choc (as seen [[https://mkultra.click/mbk-choc-keycaps][here]]), with dimensions:
+
+| Units | Width (mm) | Height (mm) |
+|-------+------------+-------------|
+| 1u    |       17.5 |        16.5 |
+| 1.5u  |       26.5 |        16.5 |
+| 2u    |       35.5 |        16.5 |
+
+Switches use 19mm spacing, so MX keycaps (18x18mm) should be compatible.
+
 *** Extras
 
 - 301230 rechargeable battery fits under the nice!nano when using sockets. You can go larger by
