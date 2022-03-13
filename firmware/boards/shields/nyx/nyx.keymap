@@ -83,12 +83,18 @@
         combo_upperl {
             timeout-ms = <50>;
             key-positions = <56 57>;
-            bindings = <&mo UPPER>;
+            bindings = <&mo UPPER>; // LGUI+FN
         };
         combo_upperr {
             timeout-ms = <50>;
-            key-positions = <62 63>;
+            key-positions = <62 63>; // RGUI+FN
             bindings = <&mo UPPER>;
         };
+        // Fake "hyper" key for macOS window management and such.
+        combo_hyper {
+            timeout_ms = <50>;
+            key-positions = <56 63>; // LGUI+RGUI
+            bindings = <&kp LGUI &kp LCTRL &kp LALT>;
+        }
     };
 };
