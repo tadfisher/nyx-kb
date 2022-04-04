@@ -9,6 +9,8 @@ on:
       - main
     paths:
       - 'firmware/**'
+  schedule:
+    - cron: '0 0 * * SAT'
   workflow_dispatch:
 
 name: Build
