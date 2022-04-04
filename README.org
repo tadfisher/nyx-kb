@@ -4,7 +4,7 @@
 
 #+html: <p align="center">Low-profile, split, wireless, ergonomic keyboard. Lots of keys but not too many.</p>
 
-#+html: <p align="center"><img src="https://github.com/tadfisher/nyx-kb/actions/workflows/build.yml/badge.svg?branch=main" /></p>
+#+html: <p align="center"><a href="https://github.com/tadfisher/nyx-kb/actions/workflows/build.yml?query=branch%3Amain"><img src="https://github.com/tadfisher/nyx-kb/actions/workflows/build.yml/badge.svg?branch=main" /></a></p>
 
 [[./doc/nyx-photo.png]]
 
