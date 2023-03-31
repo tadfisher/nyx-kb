@@ -37,9 +37,9 @@ jobs:
           EXTRA_CMAKE_ARGS="-DSHIELD=${{ matrix.shield }}"
           ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk"
           DISPLAY_NAME="${{ matrix.shield }} - ${{ matrix.board }}"
-          echo ::set-output name=extra-cmake-args::${EXTRA_CMAKE_ARGS}
-          echo ::set-output name=artifact-name::${ARTIFACT_NAME}
-          echo ::set-output name=display-name::${DISPLAY_NAME}
+          echo "extra-cmake-args=${EXTRA_CMAKE_ARGS}" >> $GITHUB_OUTPUT
+          echo "artifact-name=${ARTIFACT_NAME}" >> $GITHUB_OUTPUT
+          echo "display-name=${DISPLAY_NAME}" >> $GITHUB_OUTPUT
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cache west modules
