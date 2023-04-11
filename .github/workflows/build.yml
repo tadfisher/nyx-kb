@@ -13,73 +13,11 @@ on:
     - cron: '0 0 * * SAT'
   workflow_dispatch:
 
-name: Build
+name: Firmware
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    container:
-      image: docker.io/zmkfirmware/zmk-build-arm:stable
-    name: Build
-    strategy:
-      fail-fast: false
-      matrix:
-        board:
-          - nice_nano
-          - nice_nano_v2
-        shield:
-          - nyx_left
-          - nyx_right
-    steps:
-      - name: Prepare variables
-        id: variables
-        run: |
-          EXTRA_CMAKE_ARGS="-DSHIELD=${{ matrix.shield }}"
-          ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk"
-          DISPLAY_NAME="${{ matrix.shield }} - ${{ matrix.board }}"
-          echo ::set-output name=extra-cmake-args::${EXTRA_CMAKE_ARGS}
-          echo ::set-output name=artifact-name::${ARTIFACT_NAME}
-          echo ::set-output name=display-name::${DISPLAY_NAME}
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Cache west modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-zephyr-modules
-        with:
-          path: |
-            modules/
-            tools/
-            zephyr/
-            bootloader/
-            zmk/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('manifest-dir/west.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: West Init
-        run: west init -l firmware
-      - name: West Update
-        run: west update
-      - name: West Zephyr export
-        run: west zephyr-export
-      - name: West Build (${{ steps.variables.outputs.display-name }})
-        run: west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/firmware" ${{ steps.variables.outputs.extra-cmake-args }} ${{ matrix.cmake-args }}
-      - name: ${{ steps.variables.outputs.display-name }} Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename artifacts
-        run: |
-          mkdir build/artifacts
-          if [ -f build/zephyr/zmk.uf2 ]
-          then
-            cp build/zephyr/zmk.uf2 "build/artifacts/${{ steps.variables.outputs.artifact-name }}.uf2"
-          elif [ -f build/zephyr/zmk.hex ]
-          then
-            cp build/zephyr/zmk.hex "build/artifacts/${{ steps.variables.outputs.artifact-name }}.hex"
-          fi
-      - name: Archive (${{ steps.variables.outputs.display-name }})
-        uses: actions/upload-artifact@v2
-        with:
-          name: firmware
-          path: build/artifacts
+  ZMK:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      build_matrix_path: firmware/build.yml
+      config_path: firmware
