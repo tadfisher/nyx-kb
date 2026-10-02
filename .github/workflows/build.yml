@@ -17,7 +17,7 @@ name: Firmware
 
 jobs:
   ZMK:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
     with:
       build_matrix_path: firmware/build.yml
       config_path: firmware
